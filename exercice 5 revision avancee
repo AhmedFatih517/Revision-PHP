@@ -1,0 +1,28 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['commentaires'])) {
+    $_SESSION['commentaires'] = [];
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['commentaire'])) {
+    $commentaire = htmlspecialchars($_POST['commentaire']);
+    $_SESSION['commentaires'][] = ['texte' => $commentaire, 'date' => date('Y-m-d H:i:s')];
+}
+?>
+
+<form method="post">
+    <textarea name="commentaire" placeholder="Écrivez votre commentaire ici"></textarea>
+    <button type="submit">Soumettre</button>
+</form>
+
+<h3>Commentaires :</h3>
+<?php
+if (!empty($_SESSION['commentaires'])) {
+    foreach ($_SESSION['commentaires'] as $c) {
+        echo "<p><strong>{$c['date']}</strong>: {$c['texte']}</p>";
+    }
+} else {
+    echo "<p>Aucun commentaire pour le moment.</p>";
+}
+?>
