@@ -1,0 +1,20 @@
+<?php
+if (isset($_POST['type_compte'])) {
+    $typeCompte = $_POST['type_compte']; // Récupérer le type de compte sélectionné
+    if ($typeCompte == 'administrateur') {
+        echo "Bienvenue, administrateur !";
+    } elseif ($typeCompte == 'utilisateur') {
+        echo "Bienvenue, utilisateur simple !";
+    }
+}
+?>
+
+<!-- Formulaire HTML -->
+<form method="post">
+    Sélectionnez votre type de compte : 
+    <select name="type_compte">
+        <option value="administrateur">Administrateur</option>
+        <option value="utilisateur">Utilisateur simple</option>
+    </select><br>
+    <button type="submit">Soumettre</button>
+</form>
