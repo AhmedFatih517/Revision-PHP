@@ -1,0 +1,32 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['utilisateurs'])) {
+    $_SESSION['utilisateurs'] = [];
+}
+
+if (isset($_POST['action'])) {
+    $email = htmlspecialchars($_POST['email']);
+    $nom = htmlspecialchars($_POST['nom']);
+    if ($_POST['action'] == 'ajouter') {
+        $_SESSION['utilisateurs'][$email] = $nom;
+    } elseif ($_POST['action'] == 'supprimer') {
+        unset($_SESSION['utilisateurs'][$email]);
+    }
+}
+?>
+
+<form method="post">
+    Nom : <input type="text" name="nom">
+    Email : <input type="email" name="email">
+    <button name="action" value="ajouter">Ajouter</button>
+    <button name="action" value="supprimer">Supprimer</button>
+</form>
+
+<ul>
+    <?php
+    foreach ($_SESSION['utilisateurs'] as $email => $nom) {
+        echo "<li>$nom ($email)</li>";
+    }
+    ?>
+</ul>
