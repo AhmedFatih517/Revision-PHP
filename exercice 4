@@ -1,0 +1,12 @@
+<?php
+$scores = [
+    'Ahmed' => 15,
+    'Yassine' => 12,
+    'Lina' => 18,
+    'Yassmine' => 14,
+    'Carla' => 16
+];
+$total_scores = array_sum($scores);
+$moyenne = $total_scores / count($scores);
+echo "La moyenne des scores des étudiants est : $moyenne";
+?>
