@@ -1,0 +1,19 @@
+<?php
+$etudiant = [
+    'nom' => 'Fatih',
+    'prénom' => 'Ahmed',
+    'matricule' => '2024001',
+    'note' => 15 
+];
+echo "<h3>Informations de l'étudiant avant modification :</h3>";
+echo "Nom : " . $etudiant['nom'] . "<br>";
+echo "Prénom : " . $etudiant['prénom'] . "<br>";
+echo "Matricule : " . $etudiant['matricule'] . "<br>";
+echo "Note : " . $etudiant['note'] . "<br>";
+$etudiant['note'] = 18; 
+echo "<h3>Informations de l'étudiant après modification :</h3>";
+echo "Nom : " . $etudiant['nom'] . "<br>";
+echo "Prénom : " . $etudiant['prénom'] . "<br>";
+echo "Matricule : " . $etudiant['matricule'] . "<br>";
+echo "Note : " . $etudiant['note'] . "<br>";
+?>
