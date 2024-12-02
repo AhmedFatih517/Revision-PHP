@@ -9,7 +9,7 @@ $etudiant = [
 echo "Nom : {$etudiant['nom']}, Prénom : {$etudiant['prénom']}, Matricule : {$etudiant['matricule']}";
 
 
-#*Exercice 2 : Ajouter et modifier une clé
+#Exercice 2 : Ajouter et modifier une clé
 php
 $etudiant['note'] = 15;
 $etudiant['note'] = 18; // Modifier la valeur
