@@ -1,0 +1,27 @@
+<?php
+$utilisateurs = [
+    'user1@example.com' => 'password123',
+    'user2@example.com' => 'abc123',
+];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['email']) && isset($_POST['motdepasse'])) {
+        $email = $_POST['email'];
+        $motdepasse = $_POST['motdepasse'];
+
+        if (isset($utilisateurs[$email]) && $utilisateurs[$email] === $motdepasse) {
+            echo "Connexion réussie !";
+        } else {
+            echo "Email ou mot de passe incorrect.";
+        }
+    } else {
+        echo "Veuillez entrer un email et un mot de passe.";
+    }
+}
+?>
+
+<form method="post">
+    Email : <input type="email" name="email"><br>
+    Mot de passe : <input type="password" name="motdepasse"><br>
+    <button type="submit">Se connecter</button>
+</form>
