@@ -1,0 +1,17 @@
+<form method="post">
+    <input type="checkbox" name="produits[]" value="Produit1|10"> Produit1 - 10€<br>
+    <input type="checkbox" name="produits[]" value="Produit2|20"> Produit2 - 20€<br>
+    <button type="submit">Valider</button>
+</form>
+
+<?php
+if (isset($_POST['produits'])) {
+    $total = 0;
+    foreach ($_POST['produits'] as $p) {
+        list($nom, $prix) = explode('|', $p);
+        $total += $prix;
+        echo "$nom sélectionné - $prix €<br>";
+    }
+    echo "Prix total : $total €";
+}
+?>
