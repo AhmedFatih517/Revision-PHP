@@ -1,0 +1,26 @@
+<?php
+$employes = [
+    'Ahmed' => ['poste' => 'Manager', 'salaire' => 5000],
+    'Yassine' => ['poste' => 'Développeur', 'salaire' => 4000],
+];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Vérifier si la clé 'nom' existe dans $_POST
+    if (isset($_POST['nom']) && !empty($_POST['nom'])) {
+        $nom = $_POST['nom'];
+        if (array_key_exists($nom, $employes)) {
+            $info = $employes[$nom];
+            echo "Nom : $nom, Poste : {$info['poste']}, Salaire : {$info['salaire']} €";
+        } else {
+            echo "Employé non trouvé.";
+        }
+    } else {
+        echo "Veuillez entrer un nom d'employé.";
+    }
+}
+?>
+
+<form method="post">
+    Nom de l'employé : <input type="text" name="nom">
+    <button type="submit">Rechercher</button>
+</form>
