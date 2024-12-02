@@ -1,0 +1,11 @@
+<?php
+$etudiant = [
+    'nom' => 'Fatih',
+    'prénom' => 'Ahmed',
+    'matricule' => '2024001'
+];
+echo "<h3>Informations de l'étudiant :</h3>";
+echo "Nom : " . $etudiant['nom'] . "<br>";
+echo "Prénom : " . $etudiant['prénom'] . "<br>";
+echo "Matricule : " . $etudiant['matricule'] . "<br>";
+?>
