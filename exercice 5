@@ -1,0 +1,16 @@
+<?php
+$pays = [
+    'Chine' => 1403500365,
+    'Inde' => 1369150000,
+    'États-Unis' => 329500000,
+    'Indonésie' => 270600000,
+    'Pakistan' => 220892340,
+    'Brésil' => 211049527,
+    'Nigeria' => 206139589
+];
+arsort($pays);
+echo "Liste des pays triée par population (ordre décroissant) :<br>";
+foreach ($pays as $pays => $population) {
+    echo "$pays : $population habitants<br>";
+}
+?>
