@@ -1,0 +1,5 @@
+<?php
+$villes = ['Paris' => 20, 'Lyon' => 25, 'Marseille' => 30];
+$ville_max = array_search(max($villes), $villes);
+echo "Ville la plus chaude : $ville_max avec {$villes[$ville_max]}°C";
+?>
