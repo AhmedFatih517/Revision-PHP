@@ -1,0 +1,108 @@
+Exercice 1 : 
+Créer un tableau associatif pour représenter un étudiant. 
+php
+$etudiant = [
+    'nom' => 'Dupont',
+    'prénom' => 'Jean',
+    'matricule' => 'A12345'
+];
+echo "Nom : {$etudiant['nom']}, Prénom : {$etudiant['prénom']}, Matricule : {$etudiant['matricule']}";
+
+
+#*Exercice 2 : Ajouter et modifier une clé
+php
+$etudiant['note'] = 15;
+$etudiant['note'] = 18; // Modifier la valeur
+echo "Note : {$etudiant['note']}";
+#Exercice 3 : Parcourir un tableau de produits**
+php
+$produits = [
+    'Produit1' => 10,
+    'Produit2' => 20,
+    'Produit3' => 15
+];
+foreach ($produits as $nom => $prix) {
+    echo "$nom coûte $prix €<br>";
+}
+#Exercice 4 : Moyenne des scores
+php
+$scores = ['Etudiant1' => 12, 'Etudiant2' => 15, 'Etudiant3' => 17, 'Etudiant4' => 10, 'Etudiant5' => 18];
+$moyenne = array_sum($scores) / count($scores);
+echo "Moyenne des scores : $moyenne";
+#Exercice 5 : Tri par population
+php
+$pays = ['France' => 67000000, 'Allemagne' => 83000000, 'Italie' => 60000000];
+arsort($pays); // Tri par population décroissante
+foreach ($pays as $nom => $population) {
+    echo "$nom : $population habitants<br>";
+}
+#Exercice 6 : Formulaire simple
+html
+<form method="post">
+    Nom : <input type="text" name="nom">
+    Âge : <input type="number" name="age">
+    <button type="submit">Envoyer</button>
+</form>
+php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nom = htmlspecialchars($_POST['nom']);
+    $age = (int) $_POST['age'];
+    echo "Bienvenue, $nom, vous avez $age ans !";
+}
+#Exercice 7 : Validation des données
+php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $age = (int) $_POST['age'];
+    if ($age > 0) {
+        echo "Âge valide : $age ans.";
+    } else {
+        echo "Erreur : l'âge doit être un entier positif.";
+    }
+}
+#Exercice 8 : Couleur préférée
+php
+<form method="post">
+    <select name="couleur">
+        <option value="Rouge">Rouge</option>
+        <option value="Vert">Vert</option>
+        <option value="Bleu">Bleu</option>
+    </select>
+    <button type="submit">Envoyer</button>
+</form>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo "Votre couleur préférée est : " . htmlspecialchars($_POST['couleur']);
+}
+?>
+#Exercice 9 : Somme des nombres
+php
+<form method="get">
+    Nombre 1 : <input type="number" name="nombre1">
+    Nombre 2 : <input type="number" name="nombre2">
+    <button type="submit">Calculer</button>
+</form>
+<?php
+if (isset($_GET['nombre1']) && isset($_GET['nombre2'])) {
+    $somme = (int)$_GET['nombre1'] + (int)$_GET['nombre2'];
+    echo "La somme est : $somme";
+}
+?>
+#Exercice 10 : Type de compte
+php
+<form method="post">
+    <select name="compte">
+        <option value="Administrateur">Administrateur</option>
+        <option value="Utilisateur">Utilisateur</option>
+    </select>
+    <button type="submit">Envoyer</button>
+</form>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $compte = $_POST['compte'];
+    if ($compte == 'Administrateur') {
+        echo "Bienvenue, administrateur !";
+    } else {
+        echo "Bienvenue, utilisateur simple !";
+    }
+}
+?>
