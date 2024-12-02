@@ -1,0 +1,27 @@
+<?php
+$message = "";
+
+// Vérifier si le formulaire a été soumis
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $couleur = $_POST['couleur'];
+    $message = "Votre couleur préférée est : $couleur";
+}
+?>
+
+<!-- Formulaire HTML avec une liste déroulante -->
+<form method="post">
+    <label for="couleur">Choisissez votre couleur préférée :</label>
+    <select name="couleur" id="couleur" required>
+        <option value="rouge">Rouge</option>
+        <option value="vert">Vert</option>
+        <option value="bleu">Bleu</option>
+    </select><br>
+    <button type="submit">Soumettre</button>
+</form>
+
+<!-- Affichage du message après soumission -->
+<?php
+if ($message) {
+    echo "<p>$message</p>"; // Affiche la couleur choisie
+}
+?>
