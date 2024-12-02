@@ -1,0 +1,21 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['csv_file'])) {
+    $file = fopen($_FILES['csv_file']['tmp_name'], 'r');
+    $produits = [];
+    while (($data = fgetcsv($file)) !== false) {
+        $produits[] = ['nom' => $data[0], 'prix' => $data[1], 'quantite' => $data[2]];
+    }
+    fclose($file);
+
+    echo "<table border='1'><tr><th>Nom</th><th>Prix</th><th>Quantité</th></tr>";
+    foreach ($produits as $p) {
+        echo "<tr><td>{$p['nom']}</td><td>{$p['prix']}</td><td>{$p['quantite']}</td></tr>";
+    }
+    echo "</table>";
+}
+?>
+
+<form method="post" enctype="multipart/form-data">
+    Fichier CSV : <input type="file" name="csv_file">
+    <button type="submit">Charger</button>
+</form>
