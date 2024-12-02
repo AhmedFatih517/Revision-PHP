@@ -1,0 +1,17 @@
+<?php
+$employes = [
+    ['nom' => 'Ahmed', 'poste' => 'Manager', 'salaire' => 5000],
+    ['nom' => 'Yassine', 'poste' => 'Développeur', 'salaire' => 4000],
+    ['nom' => 'Reda', 'poste' => 'Designer', 'salaire' => 3500],
+    ['nom' => 'Anass', 'poste' => 'Marketer', 'salaire' => 3000],
+    ['nom' => 'Maya', 'poste' => 'Analyste', 'salaire' => 4500],
+];
+
+function salaire_moyen($employes) {
+    $total = array_sum(array_column($employes, 'salaire'));
+    $moyenne = $total / count($employes);
+    echo "Salaire moyen : $moyenne €";
+}
+
+salaire_moyen($employes);
+?>
