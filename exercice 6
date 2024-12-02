@@ -1,0 +1,14 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Récupérer les données soumises via le formulaire
+    $nom = htmlspecialchars($_POST['nom']);
+    $age = (int) $_POST['age']; // Convertir l'âge en entier pour éviter les erreurs
+    echo "Bienvenue, $nom, vous avez $age ans !";
+}
+?>
+<!-- Formulaire HTML -->
+<form method="post">
+    Nom : <input type="text" name="nom" required><br>
+    Âge : <input type="number" name="age" required><br>
+    <button type="submit">Soumettre</button>
+</form>
