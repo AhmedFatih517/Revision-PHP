@@ -1,0 +1,15 @@
+<?php
+if (isset($_GET['nombre1']) && isset($_GET['nombre2'])) {
+    $nombre1 = $_GET['nombre1'];
+    $nombre2 = $_GET['nombre2'];
+    $somme = $nombre1 + $nombre2;
+    echo "La somme de $nombre1 et $nombre2 est : $somme";
+}
+?>
+
+<!-- Formulaire HTML -->
+<form method="get">
+    Saisissez le premier nombre : <input type="number" name="nombre1"><br>
+    Saisissez le second nombre : <input type="number" name="nombre2"><br>
+    <button type="submit">Calculer la somme</button>
+</form>
