@@ -1,0 +1,11 @@
+<?php
+$etudiants = [
+    'Ahmed' => ['Math' => 15, 'Français' => 12],
+    'Yassine' => ['Math' => 10, 'Français' => 18],
+];
+
+foreach ($etudiants as $nom => $notes) {
+    $moyenne = array_sum($notes) / count($notes);
+    echo "$nom : Moyenne = $moyenne<br>";
+}
+?>
