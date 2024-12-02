@@ -1,0 +1,11 @@
+<?php
+$produits = [
+    'produit1' => ['nom' => 'Produit A', 'prix' => 10],
+    'produit2' => ['nom' => 'Produit B', 'prix' => 20],
+    'produit3' => ['nom' => 'Produit C', 'prix' => 30],
+];
+echo "<h3>Liste des produits :</h3>";
+foreach ($produits as $produit) {
+    echo "Nom : " . $produit['nom'] . " - Prix : " . $produit['prix'] . "€<br>";
+}
+?>
