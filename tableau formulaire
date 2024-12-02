@@ -2,9 +2,9 @@ Exercice 1 :
 Créer un tableau associatif pour représenter un étudiant. 
 php
 $etudiant = [
-    'nom' => 'Dupont',
-    'prénom' => 'Jean',
-    'matricule' => 'A12345'
+    'nom' => 'Fatih',
+    'prénom' => 'Ahmed',
+    'matricule' => 'D12345'
 ];
 echo "Nom : {$etudiant['nom']}, Prénom : {$etudiant['prénom']}, Matricule : {$etudiant['matricule']}";
 
