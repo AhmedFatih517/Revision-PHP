@@ -1,0 +1,29 @@
+<?php
+$erreur = "";
+$message = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nom = htmlspecialchars($_POST['nom']);
+    $age = $_POST['age'];
+    if (!is_numeric($age) || $age <= 0) {
+        $erreur = "L'âge doit être un entier supérieur à 0.";
+    } else {
+        $message = "Bienvenue, $nom, vous avez $age ans !";
+    }
+}
+?>
+
+<!-- Formulaire HTML -->
+<form method="post">
+    Nom : <input type="text" name="nom" required><br>
+    Âge : <input type="number" name="age" required><br>
+    <button type="submit">Soumettre</button>
+</form>
+
+<!-- Affichage des messages d'erreur ou de succès -->
+<?php
+if ($erreur) {
+    echo "<p style='color: red;'>$erreur</p>"; // Message d'erreur
+} elseif ($message) {
+    echo "<p>$message</p>"; // Message de bienvenue
+}
+?>
